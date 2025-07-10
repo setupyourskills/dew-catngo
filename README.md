@@ -15,7 +15,7 @@ This module is part of the [neorg-dew](https://github.com/setupyourskills/neorg-
 
 - A functional installation of [Neorg](https://github.com/nvim-neorg/neorg) is required for this module to work.
 - The core module [Neorg-dew](https://github.com/setupyourskills/neorg-dew) must be installed, as it provides essential base libraries.
-- [`neorg-query`](https://github.com/benlubas/neorg-query) — this module is used internally to extract note metadata such as categories and titles.
+- [neorg-query](https://github.com/benlubas/neorg-query) — this module is used internally to extract note metadata such as categories and titles.
 
 ### Using Lazy.nvim
 
@@ -53,7 +53,7 @@ You can launch the category-based note picker using the built-in Neorg command:
 
 2. After choosing a category, a second picker appears showing all notes from that category.
 
-3. Selecting a note opens it immediately in the current buffer.
+3. Selecting a note opens it immediately in a new buffer.
 
 ## Collaboration and Compatibility
 
