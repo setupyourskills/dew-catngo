@@ -17,7 +17,6 @@ module.load = function()
 	module.required["core.neorgcmd"].add_commands_from_table({
 		["catngo"] = {
 			args = 0,
-			condition = "norg",
 			name = "external.catngo.open",
 		},
 	})
