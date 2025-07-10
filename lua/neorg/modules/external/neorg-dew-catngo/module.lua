@@ -23,12 +23,6 @@ module.load = function()
 	})
 end
 
-module.public = {
-	catngo = function()
-		module.private.cat_picker(module.private.note_picker_from_cat)
-	end,
-}
-
 module.private = {
 	cat_picker = function(callback)
 		local categories = {}
@@ -97,7 +91,7 @@ module.private = {
 
 module.on_event = function(event)
 	if event.split_type[2] == "external.catngo.open" then
-		module.public.catngo()
+		module.private.cat_picker(module.private.note_picker_from_cat)
 	end
 end
 
