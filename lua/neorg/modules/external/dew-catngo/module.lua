@@ -3,7 +3,7 @@ local modules = neorg.modules
 
 local nq = require("neorg_query.api")
 
-local module = modules.create("external.neorg-dew-catngo")
+local module = modules.create("external.dew-catngo")
 
 module.setup = function()
 	return {
@@ -15,9 +15,9 @@ end
 
 module.load = function()
 	module.required["core.neorgcmd"].add_commands_from_table({
-		["catngo"] = {
+		dew_catngo = {
 			args = 0,
-			name = "external.catngo.open",
+			name = "dew-catngo.open",
 		},
 	})
 end
@@ -89,14 +89,14 @@ module.private = {
 }
 
 module.on_event = function(event)
-	if event.split_type[2] == "external.catngo.open" then
+	if event.split_type[2] == "dew-catngo.open" then
 		module.private.cat_picker(module.private.note_picker_from_cat)
 	end
 end
 
 module.events.subscribed = {
 	["core.neorgcmd"] = {
-		["external.catngo.open"] = true,
+		["dew-catngo.open"] = true,
 	},
 }
 
