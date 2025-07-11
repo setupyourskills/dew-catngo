@@ -21,7 +21,7 @@ This module is part of the [neorg-dew](https://github.com/setupyourskills/neorg-
 
 ```lua
 {
-  "setupyourskills/neorg-dew-catngo",
+  "setupyourskills/dew-catngo",
   dependencies = {
     "setupyourskills/neorg-dew",
     "benlubas/neorg-query"
@@ -35,7 +35,7 @@ Make sure all of them are loaded through Neorg’s module system in your config:
 
 ```lua
 ["external.neorg-dew"] = {},
-["external.neorg-dew-catngo"] = {},
+["external.dew-catngo"] = {},
 ["external.neorg-query"] = {},
 ```
 
@@ -44,7 +44,7 @@ Make sure all of them are loaded through Neorg’s module system in your config:
 You can launch the category-based note picker using the built-in Neorg command:
 
 ```
-:Neorg catngo
+:Neorg dew_catngo
 ```
 
 ## How it works
