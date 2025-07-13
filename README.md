@@ -1,8 +1,8 @@
 # Dew CatnGo
 
-🌿 **neorg-dew-catngo** is a minimal, focused [Neorg](https://github.com/nvim-neorg/neorg) extension designed to streamline note selection based on categories.
+🌿 **Dew CatnGo** is a minimal, focused [Neorg](https://github.com/nvim-neorg/neorg) extension designed to streamline note selection based on categories.
 
-This module is part of the [neorg-dew](https://github.com/setupyourskills/neorg-dew) ecosystem.
+This module is part of the [Neorg Dew](https://github.com/setupyourskills/neorg-dew) ecosystem.
 
 ## Features
 
@@ -14,7 +14,7 @@ This module is part of the [neorg-dew](https://github.com/setupyourskills/neorg-
 ### Prerequisites
 
 - A functional installation of [Neorg](https://github.com/nvim-neorg/neorg) is required for this module to work.
-- The core module [Neorg-dew](https://github.com/setupyourskills/neorg-dew) must be installed, as it provides essential base libraries.
+- The core module [Neorg Dew](https://github.com/setupyourskills/neorg-dew) must be installed, as it provides essential base libraries.
 - [neorg-query](https://github.com/benlubas/neorg-query) — this module is used internally to extract note metadata such as categories and titles.
 
 ### Using Lazy.nvim
