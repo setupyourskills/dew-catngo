@@ -22,6 +22,7 @@ This module is part of the [neorg-dew](https://github.com/setupyourskills/neorg-
 ```lua
 {
   "setupyourskills/dew-catngo",
+  ft = "norg",
   dependencies = {
     "setupyourskills/neorg-dew",
     "benlubas/neorg-query"
