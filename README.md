@@ -1,4 +1,4 @@
-# neorg-dew-catngo
+# Dew CatnGo
 
 🌿 **neorg-dew-catngo** is a minimal, focused [Neorg](https://github.com/nvim-neorg/neorg) extension designed to streamline note selection based on categories.
 
