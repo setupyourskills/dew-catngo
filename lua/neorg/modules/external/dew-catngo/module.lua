@@ -22,12 +22,18 @@ module.load = function()
   }
 end
 
+module.config.public = {
+  exclude_cat_prefix = ""
+}
+
 module.private = {
   cat_picker = function(callback)
     local categories = {}
 
     nq.all_categories(function(results)
-      categories = results
+      categories = vim.tbl_filter(function(cat)
+        return not vim.startswith(cat, module.config.public.exclude_cat_prefix)
+      end, results)
 
       require("neorg.core.modules").get_module("external.neorg-dew").telescope_picker("Categories", categories, {
         entry_value = function(entry)
