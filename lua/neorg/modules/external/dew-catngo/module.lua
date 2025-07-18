@@ -34,6 +34,7 @@ module.private = {
       categories = vim.tbl_filter(function(cat)
         return not vim.startswith(cat, module.config.public.exclude_cat_prefix)
       end, results)
+      table.sort(categories)
 
       require("neorg.core.modules").get_module("external.neorg-dew").telescope_picker("Categories", categories, {
         entry_value = function(entry)
