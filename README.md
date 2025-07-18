@@ -35,8 +35,12 @@ Make sure all of them are loaded through Neorg’s module system in your config:
 
 ```lua
 ["external.neorg-dew"] = {},
-["external.dew-catngo"] = {},
 ["external.neorg-query"] = {},
+["external.dew-catngo"] = {
+    config = {
+        exclude_cat_prefix = "#", -- all categories prefixed by "#" will be ignored
+    },
+},
 ```
 
 ## Usage
