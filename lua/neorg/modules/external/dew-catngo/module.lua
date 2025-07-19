@@ -16,24 +16,32 @@ end
 module.load = function()
   module.required["core.neorgcmd"].add_commands_from_table {
     dew_catngo = {
-      args = 0,
-      name = "dew-catngo.open",
+      args = 1,
+      subcommands = {
+        excluded = { args = 0, name = "dew-catngo.excluded" },
+        full = { args = 0, name = "dew-catngo.full" },
+      },
     },
   }
 end
 
 module.config.public = {
-  exclude_cat_prefix = ""
+  exclude_cat_prefix = "",
 }
 
 module.private = {
-  cat_picker = function(callback)
+  cat_picker = function(callback, exclusion)
     local categories = {}
 
     nq.all_categories(function(results)
-      categories = vim.tbl_filter(function(cat)
-        return not vim.startswith(cat, module.config.public.exclude_cat_prefix)
-      end, results)
+      if exclusion then
+        categories = vim.tbl_filter(function(cat)
+          return not vim.startswith(cat, module.config.public.exclude_cat_prefix)
+        end, results)
+      else
+        categories = results
+      end
+
       table.sort(categories)
 
       require("neorg.core.modules").get_module("external.neorg-dew").telescope_picker("Categories", categories, {
@@ -96,14 +104,19 @@ module.private = {
 }
 
 module.on_event = function(event)
-  if event.split_type[2] == "dew-catngo.open" then
+  if event.split_type[2] == "dew-catngo.excluded" then
+    module.private.cat_picker(module.private.note_picker_from_cat, true)
+    vim.print "ex"
+  elseif event.split_type[2] == "dew-catngo.full" then
     module.private.cat_picker(module.private.note_picker_from_cat)
+    vim.print "full"
   end
 end
 
 module.events.subscribed = {
   ["core.neorgcmd"] = {
-    ["dew-catngo.open"] = true,
+    ["dew-catngo.excluded"] = true,
+    ["dew-catngo.full"] = true,
   },
 }
 
