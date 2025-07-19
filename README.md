@@ -45,10 +45,11 @@ Make sure all of them are loaded through Neorg’s module system in your config:
 
 ## Usage
 
-You can launch the category-based note picker using the built-in Neorg command:
+You can launch the filtered or full category-based note picker using the built-in Neorg command:
 
 ```
-:Neorg dew_catngo
+:Neorg dew_catngo excluded
+:Neorg dew_catngo full
 ```
 
 ## How it works
