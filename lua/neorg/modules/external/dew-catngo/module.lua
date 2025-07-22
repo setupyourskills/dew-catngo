@@ -1,5 +1,6 @@
 local neorg = require "neorg.core"
 local modules = neorg.modules
+local neorg_dew = require("neorg.core.modules").get_module "external.neorg-dew"
 
 local nq = require "neorg_query.api"
 
@@ -44,7 +45,7 @@ module.private = {
 
       table.sort(categories)
 
-      require("neorg.core.modules").get_module("external.neorg-dew").telescope_picker("Categories", categories, {
+      neorg_dew.telescope_picker("Categories", categories, {
         entry_value = function(entry)
           return entry
         end,
@@ -79,26 +80,24 @@ module.private = {
         })
       end
 
-      require("neorg.core.modules")
-        .get_module("external.neorg-dew")
-        .telescope_picker("Notes from " .. category.value, items, {
-          entry_value = function(entry)
-            return entry.path
-          end,
-          entry_display = function(entry)
-            return entry.title
-          end,
-          entry_ordinal = function(entry)
-            return entry.title
-          end,
-        }, function(map, action_state, actions)
-          map("i", "<CR>", function(bufnr)
-            local selection = action_state.get_selected_entry()
-            actions.close(bufnr)
-            vim.cmd("edit " .. vim.fn.fnameescape(selection.value))
-          end)
-          return true
+      neorg_dew.telescope_picker("Notes from " .. category.value, items, {
+        entry_value = function(entry)
+          return entry.path
+        end,
+        entry_display = function(entry)
+          return entry.title
+        end,
+        entry_ordinal = function(entry)
+          return entry.title
+        end,
+      }, function(map, action_state, actions)
+        map("i", "<CR>", function(bufnr)
+          local selection = action_state.get_selected_entry()
+          actions.close(bufnr)
+          vim.cmd("edit " .. vim.fn.fnameescape(selection.value))
         end)
+        return true
+      end)
     end)
   end,
 }
