@@ -1,10 +1,10 @@
 local neorg = require "neorg.core"
 local modules = neorg.modules
-local neorg_dew = require("neorg.core.modules").get_module "external.neorg-dew"
 
 local nq = require "neorg_query.api"
 
 local module = modules.create "external.dew-catngo"
+local neorg_dew = require("neorg.core.modules").get_module "external.neorg-dew"
 
 module.setup = function()
   return {
