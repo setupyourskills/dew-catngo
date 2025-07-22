@@ -4,7 +4,6 @@ local modules = neorg.modules
 local nq = require "neorg_query.api"
 
 local module = modules.create "external.dew-catngo"
-local neorg_dew = require("neorg.core.modules").get_module "external.neorg-dew"
 
 module.setup = function()
   return {
@@ -45,7 +44,7 @@ module.private = {
 
       table.sort(categories)
 
-      neorg_dew.telescope_picker("Categories", categories, {
+      modules.get_module("external.neorg-dew").telescope_picker("Categories", categories, {
         entry_value = function(entry)
           return entry
         end,
@@ -80,7 +79,7 @@ module.private = {
         })
       end
 
-      neorg_dew.telescope_picker("Notes from " .. category.value, items, {
+      modules.get_module("external.neorg-dew").telescope_picker("Notes from " .. category.value, items, {
         entry_value = function(entry)
           return entry.path
         end,
