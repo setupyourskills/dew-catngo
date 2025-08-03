@@ -25,7 +25,7 @@ This module is part of the [Neorg Dew](https://github.com/setupyourskills/neorg-
   "setupyourskills/dew-catngo",
   dependencies = {
     "setupyourskills/neorg-dew",
-    "benlubas/neorg-query"
+    "benlubas/neorg-query",
     "nvim-telescope/telescope.nvim",
   },
 }
